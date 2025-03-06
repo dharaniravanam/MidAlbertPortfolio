@@ -1,0 +1,325 @@
+:root { 
+    --my-radius: 5px;
+    --my-padding: 10px;
+    --white: #ffffff;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("images/bg.jpg");
+}
+
+.menu-toggle
+{
+    display: none;
+}
+
+img {
+    width: 230px;
+    height: 200px;
+}
+
+
+.container {
+    display:Grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "nav nav nav nav"
+        "main main main main"
+        "Papers Papers Papers Papers"
+        "Image_Collections Image_Collections Image_Collections Image_Collections"
+        "Blog Blog Blog Blog"
+        "Hobbies Hobbies Hobbies Hobbies"
+        "Footer Footer Footer Footer";
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+#nav,#Home,#Papers,#Image_Collections,#Blog,#Hobbies,#Footer
+{
+    width: 1205px;
+   
+}
+
+/* Navigation */
+nav {
+    grid-area: nav;
+    background-color: #1096c369;
+    padding: var(--my-padding);
+    text-align: center;
+}
+
+#nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left ;
+}
+
+#nav-links li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.2em;
+}
+
+/* Main (About Section) */
+main {
+    text-align: justify;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: left;
+    background-color: var(--white);
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+}
+
+#Image {
+    text-align: left;
+    padding: 20px;
+}
+
+#Image img {
+    margin-top:35px ;
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+#about {
+    padding: 20px;
+}
+
+/* Papers Section */
+#Papers {
+    grid-area: Papers;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: var(--white);
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+    display: block;
+}
+
+#Papers h3
+{
+    font-size: small;
+}
+
+#Papers div {
+    background: var(--white);
+    text-align: justify;
+    padding: 10px;
+    border-radius: var(--my-radius);
+}
+
+#Papers img {
+    width: 80px;
+    height: 80px;
+ }
+
+/* Image Collections */
+#Image_Collections {
+    grid-area: Image_Collections;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: var(--white);
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+    display: block;
+}
+
+#Image_Collections div {
+    background: var(--white);
+    padding: 10px;
+    border-radius: var(--my-radius);
+}
+
+#Image_Collections,#Blog
+{
+    h2 
+    {
+        font-size: small;
+    }
+}
+
+/* Blog */
+#Blog {
+    grid-area: Blog;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: var(--white);
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+    display: block;
+}
+
+#Blog img {
+    width: 220px;
+    height: 120px;
+}
+
+#Blog div {
+    background: var(--white);
+    padding: 10px;
+    border-radius: var(--my-radius);
+}
+
+/* Hobbies */
+#Hobbies {
+    grid-area: Hobbies;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: var(--white);
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+    display: block;
+}
+
+#Hobbies div {
+    background: var(--white);
+    padding: 10px;
+    border-radius: var(--my-radius);
+}
+
+/* Footer */
+footer {
+    grid-area: Footer;
+    background-color: var(--white);
+    text-align: center;
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+}
+
+.section-container {
+    display: grid;
+    gap: 15px;
+    background-color: var(--white);
+    padding: var(--my-padding);
+    border-radius: var(--my-radius);
+    width: 100%;
+}
+
+/* h2 takes full width on its own row */
+.section-container h2 {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+/* Grid layout for the 4 divs */
+.section-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 10px;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .container 
+    {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "nav"
+            "main"
+            "Papers"
+            "Image_Collections"
+            "Blog"
+            "Hobbies"
+            "Footer"
+        ;
+        width: 100%;
+    }
+
+    #nav-links {
+        display: none;
+        text-align: left;
+        padding: 0;
+    }
+
+    #nav-links li {
+        margin: 20px 10px;
+        display: block;
+    }
+
+    /* Display the mobile menu toggle button */
+    .menu-toggle {
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    /* Show the navigation menu when the 'show' class is added */
+    #nav-links.show {
+        display: block;
+    }
+    
+    #nav,#Home,#Papers,#Image_Collections,#Blog,#Hobbies,#Footer
+    {
+        width: 88%;
+    
+    }
+
+    h2,h3,p
+    {
+        font-size: small;
+    }
+
+    #Papers, #Image_Collections, #Blog, #Hobbies {
+        display: grid;
+        grid-template-columns: 1fr; /* Each div stacks on top of the other */
+        gap: 10px; /* Add spacing between sections */
+    }
+
+    .section-content {
+        display: grid;
+        grid-template-columns: 1fr; /* Stack content inside sections */
+        gap: 10px;
+    }
+   
+    
+    main {
+        grid-template-columns: 1fr; /* Ensure About Me and Photo stack */
+    }
+
+    img {
+        width: 80px; /* Make images responsive */
+        height: auto;
+    }
+
+    #Image_Collections img 
+    {
+        width: 250px; /* Make images responsive */
+        height: auto;
+    };
+
+    #nav-links li {
+        display: block; /* Stack navigation links vertically */
+        margin: 10px 0;
+    }
+}
+
+
